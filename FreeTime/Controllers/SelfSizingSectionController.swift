@@ -21,7 +21,7 @@ ListBindingSectionControllerDataSource {
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, viewModelsFor object: Any) -> [ListDiffable] {
          guard let object = object as? Post else { fatalError() }
         let results: [ListDiffable] = [
-            PostViewModel(title: object.title),
+            PostViewModel(title: object.title, id: object.id),
             ActionViewModel(views: object.numberOfWatches.numberOfWatches)
         ]
         return results

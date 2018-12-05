@@ -12,19 +12,21 @@ import IGListKit
 final class PostViewModel: ListDiffable {
     
     let title: String
+    let id: String
     
-    init(title: String) {
+    init(title: String, id: String) {
         self.title = title
+        self.id = id
     }
     
     // MARK: ListDiffable
     
     func diffIdentifier() -> NSObjectProtocol {
-        return "action" as NSObjectProtocol
+        return id as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
         guard let object = object as? PostViewModel else { return false }
-        return title == object.title
+        return id == object.id
     }
 }
